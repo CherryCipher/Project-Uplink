@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d14">
+
+  <title>Project UPLINK — Software Library</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="software.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <a class="brand" href="index.html" aria-label="Uplink home">
+      <span class="brand-icon"></span>
+      PROJECT<span>UPLINK</span>
+      <small>THE MAGPIE - Resource Hub</small>
+    </a>
+
+    <nav class="topnav" aria-label="Bibliotheek navigatie">
+      <a href="index.html" class="">Games</a>
+      <a href="software.html" class="active">Software</a>
+    </nav>
+
+    <span class="server-pill">
+      <span class="status-dot"></span>
+      uplink.lan | live
+    </span>
+
+  </header>
+
+
+  <!-- FEATURED SOFTWARE -->
+  <main>
+
+    <section
+      class="hero"
+      id="hero"
+      aria-label="Uitgelichte game">
+
+      <div class="hero-art" id="heroArt"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-content wrap">
+
+        <span class="eyebrow">FEATURED SOFTWARE</span>
+
+        <p class="overline" id="heroTag">
+          DOWNLOAD • LAN READY
+        </p>
+
+        <h1 id="heroTitle">
+          Project UPLINK
+        </h1>
+
+        <p
+          class="hero-description"
+          id="heroDescription">
+          Tools en applicaties voor Project UPLINK.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="button primary"
+            id="heroLink"
+            href="#games">
+            ▶ Bekijk software
+          </a>
+
+          <a
+            class="button ghost"
+            href="#games">
+            Bekijk bibliotheek ↓
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOFTWARE LIBRARY -->
+    <section
+      class="library wrap"
+      id="games">
+
+      <div class="section-head">
+
+        <div>
+          <span class="eyebrow">SELECT YOUR SOFTWARE</span>
+
+          <h2>
+            Software Library
+            <span id="softwareCount" class="muted"></span>
+          </h2>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="searchbox">
+
+          <span aria-hidden="true">⌕</span>
+
+          <input
+            type="search"
+            id="search"
+            placeholder="Zoek software..."
+            aria-label="Zoek software">
+
+        </div>
+
+      </div>
+
+
+      <!-- CATEGORY FILTERS -->
+      <div
+        class="filterbar"
+        id="filters"
+        aria-label="Filter op categorie">
+      </div>
+
+
+      <!-- SOFTWARE BOXES -->
+      <div
+        class="games-grid"
+        id="gamesGrid"
+        aria-live="polite">
+      </div>
+
+
+      <!-- EMPTY STATE -->
+      <p
+        id="emptyState"
+        class="empty"
+        hidden>
+        Geen software gevonden. Probeer een andere categorie
+        of zoekterm.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer wrap">
+    <span>PROJECT UPLINK SERVERS - USE AT OWN RISK</span>
+  </footer>
+
+</body>
+</html>

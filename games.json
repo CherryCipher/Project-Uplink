@@ -1,0 +1,375 @@
+{
+  "games": [
+    {
+      "id": "openarena",
+      "title": "OpenArena",
+      "featured": true,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Competitief"
+      ],
+      "genre": "Arena shooter",
+      "players": "2–16+",
+      "mode": "Deathmatch / CTF",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Dedicated Linux-server",
+      "shortDescription": "Oldschool Quake-achtige arena shooter met deathmatches, raketten en Capture the Flag.",
+      "description": "OpenArena is een klassieke arena-shooter in de stijl van Quake III. Speel Deathmatch, Team Deathmatch of Capture the Flag met je vrienden. Pak een wapen, beheers de map en blijf bewegen! \n\n Open OpenArena op je pc, open de console met ~ en voer uit: /connect 192.168.222.103:27960",
+      "boxImage": "assets/openarena/box.webp",
+      "heroImage": "assets/openarena/hero.webp",
+      "screenshots": [
+        "assets/openarena/1.webp",
+        "assets/openarena/2.webp",
+        "assets/openarena/3.jpg",
+        "assets/openarena/4.jpg"
+      ],
+      "downloadUrl": "downloads/OpenArena.zip",
+      "leaderboard": [],
+      "serverAddress": "192.168.222.103:27960"
+    },
+    {
+      "id": "assaultcube",
+      "title": "AssaultCube",
+      "featured": false,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Competitief"
+      ],
+      "genre": "Tactische FPS",
+      "players": "2–16+",
+      "mode": "Team Deathmatch / CTF",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Dedicated Linux-server",
+      "shortDescription": "Lichtgewicht shooter met snelle potjes en Counter-Strike-achtige teamgevechten.",
+      "description": "Lichtgewicht shooter met snelle potjes en Counter-Strike-achtige teamgevechten. \n\n Open AssaultCube op je eigen computer en gebruik de console om rechtstreeks te verbinden: /connect 192.168.222.101 28763",
+      "boxImage": "assets/assaultcube/box.jpg",
+      "heroImage": "assets/assaultcube/hero.jpg",
+      "screenshots": [
+        "assets/assaultcube/1.jpg",
+        "assets/assaultcube/2.jpg",
+        "assets/assaultcube/3.jpg",
+        "assets/assaultcube/4.jpg"
+      ],
+      "downloadUrl": "downloads/AssaultCube_v1.3.0.2_LockdownEdition.exe",
+      "leaderboard": [],
+      "serverAddress": "192.168.222.101 28763"
+    },
+    {
+      "id": "etlegacy",
+      "title": "Wolfenstein: Enemy Territory — ET: Legacy",
+      "featured": false,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Teams"
+      ],
+      "genre": "Team-based FPS",
+      "players": "2–20+",
+      "mode": "Objective / Teams",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis; engine open source",
+      "serverInfo": "Dedicated Linux-server",
+      "shortDescription": "Werk als team samen aan missies met verschillende klassen in deze klassieke WOII-shooter.",
+      "description": "Werk als team samen aan missies met verschillende klassen in deze klassieke WOII-shooter. \n\n Open Wolfenstein en voer in de console in; /connect 192.168.222.102:27960",
+      "boxImage": "assets/etlegacy/box.jpg",
+      "heroImage": "assets/etlegacy/hero.jpg",
+      "screenshots": [
+        "assets/etlegacy/1.jpg",
+        "assets/etlegacy/2.jpg",
+        "assets/etlegacy/3.jpg",
+        "assets/etlegacy/4.jpg"
+      ],
+      "downloadUrl": "downloads/etlegacy-v2.86.2-x86.exe",
+      "leaderboard": [],
+      "serverAddress": "192.168.222.102:27960"
+    },
+    {
+      "id": "hedgewars",
+      "title": "Hedgewars",
+      "featured": false,
+      "categories": [
+        "Strategie",
+        "Party",
+        "Turn-based"
+      ],
+      "genre": "Turn-based tactiek",
+      "players": "2–8",
+      "mode": "Teams / Free for all",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Grappige, tactische gevechten met egeltjes, explosies en vreemde wapens.",
+      "description": "Hedgewars is een humoristische turn-based game waarin je een team egeltjes bestuurt. Let op: één wedstrijd ondersteunt maximaal acht spelers.",
+      "boxImage": "assets/hedgewars/box.jpg",
+      "heroImage": "assets/hedgewars/hero.jpg",
+      "screenshots": [
+        "assets/hedgewars/1.jpg",
+        "assets/hedgewars/2.jpg",
+        "assets/hedgewars/3.jpg",
+        "assets/hedgewars/4.png"
+      ],
+      "downloadUrl": "downloads/Hedgewars-1.0.0.exe",
+      "leaderboard": []
+    },
+    {
+      "id": "openhv",
+      "title": "OpenHV",
+      "featured": false,
+      "categories": [
+        "Strategie",
+        "RTS",
+        "Competitief"
+      ],
+      "genre": "Real-time strategy",
+      "players": "2–10+",
+      "mode": "Skirmish / Teams",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Retro strategiespel met futuristische legers, bases en grondstoffen.",
+      "description": "Retro strategiespel met futuristische legers, bases en grondstoffen.",
+      "boxImage": "assets/openhv/box.png",
+      "heroImage": "assets/openhv/hero.jpg",
+      "screenshots": [
+        "assets/openhv/1.png",
+        "assets/openhv/2.webp",
+        "assets/openhv/3.webp",
+        "assets/openhv/4.png"
+      ],
+      "downloadUrl": "downloads/openhv-win.zip",
+      "leaderboard": []
+    },
+    {
+      "id": "openra",
+      "title": "OpenRA",
+      "featured": false,
+      "categories": [
+        "Strategie",
+        "RTS",
+        "Competitief"
+      ],
+      "genre": "Real-time strategy",
+      "players": "2–10+",
+      "mode": "Skirmish / Teams",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source-engine; game-assets aparte rechten",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Klassieke real-time strategie in de geest van Command & Conquer.",
+      "description": "Klassieke real-time strategie in de geest van Command & Conquer.",
+      "boxImage": "assets/openra/box.png",
+      "heroImage": "assets/openra/hero.png",
+      "screenshots": [
+        "assets/openra/1.png",
+        "assets/openra/2.png",
+        "assets/openra/3.png",
+        "assets/openra/4.webp"
+      ],
+      "downloadUrl": "downloads/OpenRA-release-20250330-x64.exe",
+      "leaderboard": []
+    },
+    {
+      "id": "speeddreams",
+      "title": "Speed Dreams",
+      "featured": false,
+      "categories": [
+        "Racing",
+        "Simulatie"
+      ],
+      "genre": "Racesimulator",
+      "players": "Afhankelijk van spelmodus",
+      "mode": "Race / Time trial",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Race met realistischere besturing en klassieke circuits.",
+      "description": "Race met realistischere besturing en klassieke circuits.",
+      "boxImage": "assets/speeddreams/box.jpg",
+      "heroImage": "assets/speeddreams/hero.jpg",
+      "screenshots": [
+        "assets/speeddreams/1.jpg",
+        "assets/speeddreams/2.jpg",
+        "assets/speeddreams/3.webp",
+        "assets/speeddreams/4.webp"
+      ],
+      "downloadUrl": "downloads/speed-dreams-2.4.2.exe",
+      "leaderboard": []
+    },
+    {
+      "id": "supertuxkart",
+      "title": "SuperTuxKart",
+      "featured": false,
+      "categories": [
+        "Racing",
+        "Arcade",
+        "Party"
+      ],
+      "genre": "Kart-racer",
+      "players": "2–10+",
+      "mode": "Race / Battle",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Dedicated Linux-server",
+      "shortDescription": "Kart-races met power-ups, kleurrijke circuits en veel chaos.",
+      "description": "SuperTuxKart is een vrolijke kart-racer met verschillende spelmodi en circuits. Perfect voor een toegankelijke raceavond.",
+      "boxImage": "assets/supertuxkart/box.jpg",
+      "heroImage": "assets/supertuxkart/hero.jpg",
+      "screenshots": [
+        "assets/supertuxkart/1.jpg",
+        "assets/supertuxkart/2.jpg",
+        "assets/supertuxkart/3.jpg",
+        "assets/supertuxkart/4.jpg"
+      ],
+      "downloadUrl": "downloads/SuperTuxKart-1.5-installer-x86_64.exe",
+      "leaderboard": [],
+      "serverAddress": "192.168.222.104:2759"
+    },
+    {
+      "id": "unrealgold",
+      "title": "Unreal Gold",
+      "featured": false,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Retro"
+      ],
+      "genre": "Shooter / adventure",
+      "players": "Multiplayer afhankelijk van gameversie",
+      "mode": "Deathmatch / Co-op",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Commercieel / eigendomsrechten",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Klassieke Unreal uit 1998 met een sfeervolle campagne en multiplayer-modi.",
+      "description": "Klassieke Unreal uit 1998 met een sfeervolle campagne en multiplayer-modi.",
+      "boxImage": "assets/unrealgold/box.jpg",
+      "heroImage": "assets/unrealgold/hero.webp",
+      "screenshots": [
+        "assets/unrealgold/1.jpg",
+        "assets/unrealgold/2.jpg",
+        "assets/unrealgold/3.png",
+        "assets/unrealgold/4.jpg"
+      ],
+      "downloadUrl": "downloads/Unreal_Gold.exe",
+      "leaderboard": []
+    },
+    {
+      "id": "warzone2100",
+      "title": "Warzone 2100",
+      "featured": false,
+      "categories": [
+        "Strategie",
+        "RTS",
+        "Competitief"
+      ],
+      "genre": "Real-time strategy",
+      "players": "2–10",
+      "mode": "Skirmish / Teams",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Client-hosted multiplayer",
+      "shortDescription": "Bouw een basis, ontwerp voertuigen en vecht tactische realtime veldslagen.",
+      "description": "Bouw een basis, ontwerp voertuigen en vecht tactische realtime veldslagen.",
+      "boxImage": "assets/warzone2100/box.webp",
+      "heroImage": "assets/warzone2100/hero.jpg",
+      "screenshots": [
+        "assets/warzone2100/1.jpg",
+        "assets/warzone2100/2.jpg",
+        "assets/warzone2100/3.jpg",
+        "assets/warzone2100/4.jpg"
+      ],
+      "downloadUrl": "downloads/warzone2100_win_installer.exe",
+      "leaderboard": []
+    },
+    {
+      "id": "xonotic",
+      "title": "Xonotic",
+      "featured": false,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Competitief"
+      ],
+      "genre": "Arena shooter",
+      "players": "2–16+",
+      "mode": "Deathmatch / CTF",
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "Dedicated Linux-server",
+      "shortDescription": "Supersnelle futuristische arena-shooter met bijzondere wapens en movement tricks.",
+      "description": "Xonotic is een gratis arena-FPS waarin snelheid en precisie tellen. Kies je favoriete wapen en speel korte, intensieve potjes tegen je vrienden. \n\n Wil je connecten met de UPLINK server; Open Xonotic, SHIFT + ESC > connect 192.168.222.100:26000",
+      "boxImage": "assets/xonotic/box.jpg",
+      "heroImage": "assets/xonotic/hero.jpg",
+      "screenshots": [
+        "assets/xonotic/1.jpg",
+        "assets/xonotic/2.jpg",
+        "assets/xonotic/3.jpg",
+        "assets/xonotic/4.webp"
+      ],
+      "downloadUrl": "downloads/xonotic-0.8.6.zip",
+      "leaderboardLabel": "Kills",
+      "leaderboard": [
+        {
+          "name": "LexusTG",
+          "score": 16
+        }
+      ],
+      "serverAddress": "192.168.222.100:26000"
+    },
+    {
+      "id": "linux",
+      "title": "Linux-Download",
+      "featured": false,
+      "categories": [
+        "FPS",
+        "Actie",
+        "Competitief"
+      ],
+      "genre": "General Downloads",
+      "players": "-",
+      "mode": "-",
+      "platforms": [
+        "Linux"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "-",
+      "shortDescription": "Most off all games can be downloaded and run on Linux. See description",
+      "description": "Download the file and follow the instructions to install and run all the games on Linux.",
+      "boxImage": "assets/linux/box.jpg",
+      "heroImage": "assets/linux/hero.avif",
+      "screenshots": [
+        "assets/linux/1.jpg",
+        "assets/linux/2.avif",
+        "assets/linux/3.webp",
+        "assets/linux/4.jpg"
+      ],
+      "downloadUrl": "downloads/linux-install.txt",
+      "serverAddress": ""
+    }
+  ]
+}

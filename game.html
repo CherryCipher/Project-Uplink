@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d14">
+
+  <title>Project UPLINK — Game Details</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="game.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <a class="brand" href="index.html" aria-label="Uplink home">
+      <span class="brand-icon"></span>
+      PROJECT<span>UPLINK</span>
+      <small>THE MAGPIE - Resource Hub</small>
+    </a>
+
+    <nav class="topnav" aria-label="Bibliotheek navigatie">
+      <a href="index.html" class="">Games</a>
+      <a href="software.html" class="">Software</a>
+    </nav>
+
+    <span class="server-pill">
+      <span class="status-dot"></span>
+      uplink.lan | live
+    </span>
+
+  </header>
+
+
+  <!-- GAME DETAILS -->
+  <main id="detail" hidden>
+
+    <!-- HERO -->
+    <section class="detail-hero">
+
+      <div class="hero-art" id="detailArt"></div>
+      <div class="hero-shade"></div>
+
+      <div class="detail-hero-content wrap">
+
+        <a class="backlink" href="index.html">
+          ← TERUG NAAR BIBLIOTHEEK
+        </a>
+
+        <div class="detail-intro">
+
+          <!-- GAME BOX -->
+          <img
+            id="detailBox"
+            class="detail-box"
+            alt="Game cover"
+          >
+
+          <div class="detail-info">
+
+            <span class="eyebrow" id="detailCategory"></span>
+
+            <h1 id="detailTitle"></h1>
+
+            <p
+              id="detailShort"
+              class="hero-description">
+            </p>
+
+            <div class="hero-actions">
+
+              <a
+                id="downloadButton"
+                class="button primary"
+                href="#">
+                ↓ DOWNLOAD GAME
+              </a>
+
+              <a
+                class="button ghost"
+                href="#leaderboard">
+                Bekijk leaderboard
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+    <div class="wrap detail-layout">
+
+      <section class="detail-main">
+
+        <!-- SCREENSHOTS -->
+        <div class="section-head">
+
+          <div>
+            <span class="eyebrow">GAME PREVIEW</span>
+            <h2>Screenshots</h2>
+          </div>
+
+        </div>
+
+        <div
+          id="screenshots"
+          class="screenshots">
+        </div>
+
+
+        <!-- DESCRIPTION -->
+        <div class="section-head content-heading">
+
+          <div>
+            <span class="eyebrow">SUMMARY</span>
+            <h2>Over deze game</h2>
+          </div>
+
+        </div>
+
+        <p
+          class="description"
+          id="detailDescription">
+        </p>
+
+
+        <!-- LEADERBOARD -->
+        <section
+          id="leaderboard"
+          class="leaderboard">
+
+          <div class="section-head">
+
+            <div>
+              <span class="eyebrow">PROJECT UPLINK HALL OF FAME</span>
+              <h2>Leaderboard</h2>
+            </div>
+
+            <span class="tag">COMING SOON</span>
+
+          </div>
+
+          <div id="leaderboardContent"></div>
+
+        </section>
+
+      </section>
+
+
+      <!-- GAME INFORMATION -->
+      <aside class="info-panel">
+
+        <span class="eyebrow">STATS</span>
+
+        <h3>Game details</h3>
+
+        <dl id="stats"></dl>
+
+        <!--
+        <div class="aside-note">
+          Controleer vóór het spelen of je de juiste versie
+          hebt geïnstalleerd.
+        </div>
+        -->
+
+      </aside>
+
+    </div>
+
+  </main>
+
+
+  <!-- ERROR -->
+  <div
+    id="errorState"
+    class="wrap error-state"
+    hidden>
+
+    <h1>Game niet gevonden</h1>
+
+    <p>
+      Deze game bestaat niet of kan niet worden geladen.
+    </p>
+
+    <a
+      class="button primary"
+      href="index.html">
+      ← Naar bibliotheek
+    </a>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer wrap">
+    <span>PROJECT UPLINK SERVERS - USE AT OWN RISK</span>
+  </footer>
+
+</body>
+</html>

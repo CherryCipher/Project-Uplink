@@ -1,0 +1,15 @@
+# Game installers en downloads
+/downloads/
+
+# Python (voor later)
+/.venv/
+__pycache__/
+*.pyc
+
+# Database en configuratie
+*.db
+*.sqlite3
+.env
+
+# Tijdelijke bestanden
+.vscode/

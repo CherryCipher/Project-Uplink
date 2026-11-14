@@ -1,0 +1,41 @@
+{
+  "software": [
+    {
+      "id": "stoat",
+      "title": "Stoat",
+      "featured": true,
+      "categories": [
+        "Communicatie",
+        "Chat",
+        "Tools"
+      ],
+      "genre": "Teamchat / Discord-alternatief",
+      "version": "Actuele release (via officiële website)",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Web"
+      ],
+      "license": "Gratis / open source",
+      "serverInfo": "staot.uplink.lan",
+      "serverAddress": null,
+      "requirements": {
+        "os": "Windows / Linux / macOS of moderne browser",
+        "cpu": "-",
+        "ram": "-",
+        "storage": "Afhankelijk van de clientversie",
+        "network": "geen"
+      },
+      "shortDescription": "Open-source chatsoftware voor de communicatie tijdens UPLINK.",
+      "description": "Stoat (voorheen Revolt) is een open-source communicatieplatform met kanalen, chat en communityfuncties. Gebruik de desktopclient of de webversie om met de andere UPLINK-spelers te communiceren. De precieze systeemeisen zijn nog niet vastgesteld; raadpleeg de officiële downloadpagina voor de meest actuele versie.",
+      "boxImage": "assets/stoat/box.jpg",
+      "heroImage": "assets/stoat/hero.png",
+      "screenshots": [
+        "assets/stoat/1.png",
+        "assets/stoat/2.webp"
+      ],
+      "downloadUrl": "downloads/stoat-desktop-setup.exe"
+    }
+  ]
+}
