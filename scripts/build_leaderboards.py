@@ -121,23 +121,64 @@ def parse_openarena(log: str, excluded_names: set[str] | None = None) -> list[di
 
 
 def parse_assaultcube(log: str) -> list[dict]:
-    """Count clear player frag events in AssaultCube server logs.
+    """Sum frags from final, completed AssaultCube match scoreboards only.
 
-    This is a frag EVENT counter, not an exact game scoreboard. Gib bonus,
-    suicides, teamkills and frag rules differ by mode; inspect a real server
-    log before calling this a verified leaderboard.
+    Match end:
+        Game status: deathmatch on ..., game finished, ...
+        cn name              frag death ping role    host
+         0 LexusTG             6     0   11 normal  192.168.222.203
+
+    Flag modes include a 'flag' column before 'frag'. Ignore periodic
+    Game status snapshots, disconnected-client scores and kill events.
     """
     rows = []
+    awaiting_header = False
+    reading_rows = False
+    frag_column = None
+
     for raw in log.splitlines():
         line = raw.strip()
-        m = AC_FRAG.search(line)
-        if m:
-            attacker = m.group(1).strip()
-            # If syslog timestamp occurs before the IP prefix, use the last
-            # bracketed prefix when available.
-            if "] " in attacker:
-                attacker = attacker.rsplit("] ", 1)[-1]
-            rows.append((attacker, 1))
+        if "Game status:" in line:
+            # Only complete games; periodic 'minutes remaining' snapshots do
+            # not count, nor do partially played games.
+            awaiting_header = "game finished" in line.casefold()
+            reading_rows = False
+            frag_column = None
+            continue
+
+        if awaiting_header and line.startswith("cn ") and " name " in (" " + line + " "):
+            columns = line.split()
+            # Two supported scoreboard schemas: with or without 'flag'.
+            if columns[:2] == ["cn", "name"] and "frag" in columns:
+                frag_column = columns.index("frag") - 2
+                if frag_column in (0, 1):
+                    reading_rows = True
+            awaiting_header = False
+            continue
+
+        if not reading_rows:
+            continue
+
+        # The final columns are numeric stats and role/host. Parse from the
+        # right so player nicknames may contain spaces.
+        if frag_column == 0:
+            match = re.match(
+                r"^\\d+\\s+(.+?)\\s+(-?\\d+)\\s+(-?\\d+)\\s+\\d+\\s+\\S+\\s+\\S+$",
+                line,
+            )
+            if match:
+                rows.append((match.group(1), int(match.group(2))))
+        else:
+            match = re.match(
+                r"^\\d+\\s+(.+?)\\s+(-?\\d+)\\s+(-?\\d+)\\s+(-?\\d+)\\s+\\d+\\s+\\S+\\s+\\S+$",
+                line,
+            )
+            if match:
+                rows.append((match.group(1), int(match.group(3))))
+
+        if not match:
+            reading_rows = False
+
     return merge_scores(rows)
 
 
