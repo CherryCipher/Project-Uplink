@@ -21,7 +21,17 @@
       "host": "192.168.222.103",
       "user": "uplinklogs",
       "identity_file": "/root/.ssh/id_ed25519_uplink_openarena",
-      "remote_log": "/pad/naar/openarena/games.log"
+      "remote_log": "/pad/naar/openarena/games.log",
+      "exclude_names": [
+        "Sarge",
+        "Dark",
+        "Angelyss",
+        "Grism",
+        "Grunt",
+        "Penguin",
+        "Major",
+        "Beret"
+      ]
     }
   }
 }
