@@ -85,6 +85,37 @@ class ParserTests(unittest.TestCase):
             {"name": "Major", "score": 22},
         ])
 
+    def test_openarena_excludes_configured_bots_only(self):
+        log = (
+            "11:48 Exit: Fraglimit hit.\n"
+            "11:48 score: 30 ping: 0 client: 1 Sarge\n"
+            "11:48 score: 26 ping: 3 client: 4 LexusTG\n"
+            "11:48 score: 22 ping: 0 client: 2 Major\n"
+            "11:49 score: 2 ping: 5 client: 5 Saarge\n"
+        )
+        self.assertEqual(
+            parse_openarena(log, {"sarge", "major"}),
+            [{"name": "LexusTG", "score": 26}, {"name": "Saarge", "score": 2}],
+        )
+
+    def test_openarena_exclusion_flows_through_build(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            log = root / "openarena.log"
+            log.write_text(
+                "1:00 Exit: Fraglimit hit.\n"
+                "1:00 score: 30 ping: 0 client: 0 Grunt\n"
+                "1:00 score: 5 ping: 4 client: 1 LexusTG\n",
+                encoding="utf-8",
+            )
+            result = build(
+                {"openarena": log}, root / "leaderboards.json",
+                excluded_names={"openarena": {"Grunt"}},
+            )
+            self.assertEqual(result["games"]["openarena"]["players"], [
+                {"name": "LexusTG", "score": 5}
+            ])
+
     def test_assaultcube_frag_events_only(self):
         log = (
             "[192.0.2.42] Lex fragged Guest\n"
