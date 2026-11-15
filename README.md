@@ -46,3 +46,9 @@ Open `hub.json` en voeg binnen de `links`-array een object toe:
 
 Laat tussen de JSON-objecten een komma staan. Bewaar eigen afbeeldingen in `assets/`.
 De HUB werkt zonder database en zonder extra backend. Start lokaal `py -m http.server 8000` en bezoek `http://localhost:8000/hub.html`. Lokale `.lan`-links werken alleen als je met het Uplink-netwerk verbonden bent en de betreffende service bereikbaar is.
+
+## Automatische game-leaderboards
+
+Voor Xonotic, AssaultCube en OpenArena is een optionele logparser toegevoegd.
+Zie [docs/LEADERBOARDS.md](docs/LEADERBOARDS.md) voor configuratie, testen en beperkingen.
+De website blijft statisch; `leaderboards.json` wordt lokaal op de webserver aangemaakt en niet naar Git gepusht.
