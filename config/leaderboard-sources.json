@@ -1,0 +1,27 @@
+{
+  "_comment": "Games enabled=false worden overgeslagen. Activeer andere games zodra hun SSH-toegang en logpad getest zijn.",
+  "output": "/var/www/html/leaderboards.json",
+  "games": {
+    "xonotic": {
+      "enabled": true,
+      "host": "192.168.222.100",
+      "user": "uplinklogs",
+      "identity_file": "/root/.ssh/id_ed25519_uplink",
+      "remote_log": "/home/xonotic/.xonotic/data/data/scores.log"
+    },
+    "assaultcube": {
+      "enabled": false,
+      "host": "192.168.222.101",
+      "user": "uplinklogs",
+      "identity_file": "/root/.ssh/id_ed25519_uplink_assaultcube",
+      "remote_log": "/pad/naar/assaultcube/server.log"
+    },
+    "openarena": {
+      "enabled": false,
+      "host": "192.168.222.103",
+      "user": "uplinklogs",
+      "identity_file": "/root/.ssh/id_ed25519_uplink_openarena",
+      "remote_log": "/pad/naar/openarena/games.log"
+    }
+  }
+}
