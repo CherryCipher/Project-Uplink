@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d14">
+  <title>Project UPLINK — HUB</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="hub.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Uplink home">
+      <span class="brand-icon"></span>
+      PROJECT<span>UPLINK</span>
+      <small>THE MAGPIE - Resource Hub</small>
+    </a>
+    <nav class="topnav" aria-label="Bibliotheek navigatie">
+      <a href="index.html">Games</a>
+      <a href="software.html">Software</a>
+      <a href="hub.html" class="active" aria-current="page">HUB</a>
+    </nav>
+    <span class="server-pill"><span class="status-dot"></span>uplink.lan | live</span>
+  </header>
+
+  <main>
+    <section class="hub-intro">
+      <div class="wrap">
+        <span class="eyebrow">PROJECT UPLINK / NETWORK SERVICES</span>
+        <h1>THE HUB<span class="hub-period">.</span></h1>
+        <p class="hub-lead">Alle diensten en handige links van het Uplink-netwerk op één plek.</p>
+      </div>
+    </section>
+
+    <section class="hub-library wrap" aria-labelledby="hubHeading">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">EXPLORE THE NETWORK</span>
+          <h2 id="hubHeading">Services <span id="hubCount" class="muted"></span></h2>
+        </div>
+      </div>
+      <div id="hubLinks" class="hub-links" aria-live="polite"></div>
+      <p id="hubMessage" class="empty" role="status">Links laden...</p>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <span>PROJECT UPLINK SERVERS - USE AT OWN RISK</span>
+  </footer>
+</body>
+</html>
