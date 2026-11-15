@@ -45,30 +45,52 @@ def merge_scores(rows: list[tuple[str, int]]) -> list[dict]:
 
 
 def parse_xonotic(log: str) -> list[dict]:
-    """Parse old-style sv_logscores_file :scores/:player/:end blocks.
+    """Read completed Xonotic score blocks, including labelled player rows.
 
-    Newer eventlog ':player:see-labels:...' records use another format;
-    this parser intentionally ignores them rather than publishing wrong scores.
+    Select the 'score' metric by reading the :labels: column list, rather
+    than assuming that the first numeric field is always the right metric.
+    Names may include colons or Unicode characters.
     """
     rows = []
     match = []
     inside = False
+    score_column = None
     for raw in log.splitlines():
         line = raw.strip()
         if line.startswith(":scores:"):
-            match, inside = [], True
+            match, inside, score_column = [], True, None
+        elif inside and line.startswith(":labels:player:"):
+            labels = line[len(":labels:player:"):].split(",")
+            score_column = next(
+                (i for i, label in enumerate(labels)
+                 if label.rstrip("!<").casefold() == "score"),
+                None
+            )
+        elif inside and line.startswith(":player:see-labels:"):
+            # :player:see-labels:<comma separated stats>:<time>:<team>:<name>
+            parsed = re.match(
+                r"^:player:see-labels:([^:]*):(-?\d+):(-?\d+):(.+)$",
+                line
+            )
+            if parsed and score_column is not None:
+                fields = parsed.group(1).split(",")
+                if score_column < len(fields):
+                    try:
+                        score = int(fields[score_column])
+                        match.append((parsed.group(4), score))
+                    except ValueError:
+                        pass
         elif inside and line.startswith(":player:"):
-            parts = line.split(":", 6)
-            if len(parts) == 7 and parts[2] != "see-labels":
-                try:
-                    frags = int(parts[2])
-                    int(parts[3])  # deaths, validate format
-                    match.append((parts[6], frags))
-                except ValueError:
-                    pass
+            # Legacy layout: :player:<score>:<deaths>:<time>:<team>:<name>
+            parsed = re.match(
+                r"^:player:(-?\d+):(-?\d+):(\d+):(-?\d+):(.+)$",
+                line
+            )
+            if parsed:
+                match.append((parsed.group(5), int(parsed.group(1))))
         elif inside and line == ":end":
             rows.extend(match)
-            match, inside = [], False
+            match, inside, score_column = [], False, None
     return merge_scores(rows)
 
 
@@ -144,7 +166,7 @@ def build(paths: dict[str, Path], output: Path) -> dict:
         text = path.read_text(encoding="utf-8", errors="replace")
         players = PARSERS[game](text)
         games[game] = {
-            "label": "Frags" if game != "openarena" else "Score",
+            "label": "Frags" if game == "assaultcube" else "Score",
             "players": players,
             "updated": timestamp,
         }
