@@ -7,7 +7,6 @@ Only explicitly configured log files are read. Only names and scores are output.
 from __future__ import annotations
 
 import argparse
-from collections import defaultdict
 from datetime import datetime, timezone
 import json
 import os
@@ -70,8 +69,6 @@ def parse_xonotic(log: str) -> list[dict]:
         elif inside and line == ":end":
             rows.extend(match)
             match, inside = [], False
-        elif inside and line.startswith(":scores:"):
-            match = []
     return merge_scores(rows)
 
 
