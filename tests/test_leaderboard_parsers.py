@@ -116,17 +116,47 @@ class ParserTests(unittest.TestCase):
                 {"name": "LexusTG", "score": 5}
             ])
 
-    def test_assaultcube_frag_events_only(self):
+    def test_assaultcube_final_match_only(self):
         log = (
-            "[192.0.2.42] Lex fragged Guest\n"
-            "[192.0.2.42] Lex fragged Guest\n"
-            "Some unrelated server message\n"
-            "[192.0.2.43] Guest fragged Lex\n"
+            "Game status: deathmatch on ac_lainio, 2 minutes remaining, open, 2 clients\n"
+            "cn name              frag death ping role    host\n"
+            " 0 LexusTG             4     0   11 normal  192.168.222.203\n"
+            " 1 Imacert             0     4   13 normal  192.168.222.210\n"
+            "[192.168.222.203] LexusTG fragged Imacert\n"
+            "Game status: deathmatch on ac_lainio, game finished, open, 2 clients\n"
+            "cn name              frag death ping role    host\n"
+            " 0 LexusTG             6     0   11 normal  192.168.222.203\n"
+            " 1 Imacert             0     5   13 normal  192.168.222.210\n"
+            "enddemorecord(): sequence #1\n"
+            "Game status: deathmatch on ac_lainio, game finished, open, 2 clients\n"
+            "cn name              frag death ping role    host\n"
+            " 0 LexusTG             7     0   11 normal  192.168.222.203\n"
+            " 1 Imacert             2     3   13 normal  192.168.222.210\n"
         )
-        self.assertEqual(
-            parse_assaultcube(log),
-            [{"name": "Lex", "score": 2}, {"name": "Guest", "score": 1}],
+        self.assertEqual(parse_assaultcube(log), [
+            {"name": "LexusTG", "score": 13},
+            {"name": "Imacert", "score": 2}
+        ])
+
+    def test_assaultcube_flag_mode_uses_frags_not_flags(self):
+        log = (
+            "Game status: keep the flag on ac_aqueous, game finished, open, 2 clients\n"
+            "cn name             flag  frag death ping role    host\n"
+            " 0 LexusTG             2    4     1   11 normal  192.168.222.203\n"
+            " 1 Imacert             5    1     0   13 normal  192.168.222.210\n"
         )
+        self.assertEqual(parse_assaultcube(log), [
+            {"name": "LexusTG", "score": 4},
+            {"name": "Imacert", "score": 1}
+        ])
+
+    def test_assaultcube_rejects_incomplete_scores(self):
+        log = (
+            "Game status: deathmatch on ac_lainio, 1 minutes remaining, open, 1 clients\n"
+            "cn name              frag death ping role    host\n"
+            " 0 LexusTG            25     0   11 normal  192.168.222.203\n"
+        )
+        self.assertEqual(parse_assaultcube(log), [])
 
     def test_build_preserves_other_boards_and_is_repeatable(self):
         with tempfile.TemporaryDirectory() as folder:
