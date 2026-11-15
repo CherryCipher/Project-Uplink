@@ -104,3 +104,30 @@ zonder toegang tot je Uplink-netwerk, via de toegevoegde mock-tests.
   hebben gecontroleerd.
 - Logs en `leaderboards.json` staan niet in Git. De centrale updater
   maakt alleen de bewerkte score-JSON openbaar, niet de ruwe logs.
+
+
+## OpenArena: bots uitsluiten
+
+Gebruik in het OpenArena-blok van `config/leaderboard-sources.json` de optie
+`exclude_names` (een lijst van nicknames). De updater vergelijkt namen
+hoofdletterongevoelig en exact, na het weghalen van Quake-kleurcodes.
+De beginnamenlijst is gebaseerd op bots uit de aangeleverde Uplink-logs:
+
+```json
+"exclude_names": [
+  "Sarge", "Dark", "Angelyss", "Grism",
+  "Grunt", "Penguin", "Major", "Beret"
+]
+```
+
+Voeg nieuwe botnamen handmatig toe wanneer ze in de scorelijst verschijnen.
+Een echte speler die exact dezelfde naam kiest, wordt ook weggefilterd.
+Het is dus een eenvoudige naamfilter, geen betrouwbare identificatie van
+botaccounts. Alleen OpenArena wordt momenteel gefilterd.
+
+**Let op bij deployment:** de ingecheckte bronconfig heeft OpenArena nog op
+`enabled: false` met een voorbeeld-logpad. De werkende configuratie op de
+webserver heeft juist `enabled: true` en het echte pad
+`/var/games/openarena-server/server.oa/baseoa/games.log`.
+Overschrijf de werkende serverconfig dus niet blind vanuit Git; voeg alleen
+de `exclude_names`-lijst toe. De timer leest die automatisch bij de volgende run.
