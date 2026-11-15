@@ -166,7 +166,7 @@ def build(paths: dict[str, Path], output: Path) -> dict:
         text = path.read_text(encoding="utf-8", errors="replace")
         players = PARSERS[game](text)
         games[game] = {
-            "label": "Frags" if game != "openarena" else "Score",
+            "label": "Frags" if game == "assaultcube" else "Score",
             "players": players,
             "updated": timestamp,
         }
