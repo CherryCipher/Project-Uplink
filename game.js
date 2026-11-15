@@ -3,6 +3,7 @@
  * All game content comes from games.json.
  */
 import { loadGames, makeImage, setBackground, imageUrl, readable } from './data.js';
+import { loadLiveLeaderboards, withLiveLeaderboard } from './leaderboard-data.js';
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -47,7 +48,7 @@ function renderLeaderboard(game) {
     return;
   }
 
-  status.textContent = 'TOP PLAYERS';
+  status.textContent = game.leaderboardLive ? 'AUTO UPDATED' : 'TOP PLAYERS';
 
   // Copy before sorting: never change the order stored in games.json.
   const sorted = [...entries].sort(
@@ -157,7 +158,8 @@ async function init() {
     const { games } = await loadGames();
     const game = games.find((entry) => entry.id === id);
     if (!game) throw new Error('Game niet gevonden');
-    showGame(game);
+    const liveBoards = await loadLiveLeaderboards();
+    showGame(withLiveLeaderboard(game, liveBoards));
   } catch (error) {
     const errorState = $('#errorState');
     errorState.hidden = false;
