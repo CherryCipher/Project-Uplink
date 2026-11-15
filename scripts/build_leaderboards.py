@@ -94,8 +94,9 @@ def parse_xonotic(log: str) -> list[dict]:
     return merge_scores(rows)
 
 
-def parse_openarena(log: str) -> list[dict]:
-    """Capture Q3 scoreboard lines after Exit: and before next InitGame."""
+def parse_openarena(log: str, excluded_names: set[str] | None = None) -> list[dict]:
+    """Capture Q3 scores, excluding configured bot nicknames."""
+    excluded = {clean_name(n).casefold() for n in (excluded_names or set())}
     rows = []
     match = []
     after_exit = False
@@ -112,7 +113,8 @@ def parse_openarena(log: str) -> list[dict]:
         elif after_exit:
             m = Q3_SCORE.search(line)
             if m:
-                match.append((m.group(2), int(m.group(1))))
+                if clean_name(m.group(2)).casefold() not in excluded:
+                    match.append((m.group(2), int(m.group(1))))
     if after_exit:
         rows.extend(match)
     return merge_scores(rows)
@@ -146,7 +148,7 @@ PARSERS = {
 }
 
 
-def build(paths: dict[str, Path], output: Path) -> dict:
+def build(paths: dict[str, Path], output: Path, excluded_names: dict[str, set[str]] | None = None) -> dict:
     if not paths:
         raise ValueError("Supply at least one game log.")
     existing = {}
@@ -164,7 +166,10 @@ def build(paths: dict[str, Path], output: Path) -> dict:
         if not path.is_file():
             raise FileNotFoundError(f"{game}: log not found: {path}")
         text = path.read_text(encoding="utf-8", errors="replace")
-        players = PARSERS[game](text)
+        if game == "openarena":
+            players = parse_openarena(text, (excluded_names or {}).get(game))
+        else:
+            players = PARSERS[game](text)
         games[game] = {
             "label": "Frags" if game == "assaultcube" else "Score",
             "players": players,

@@ -93,7 +93,13 @@ def run(config_path: Path) -> int:
                 failed.append(game)
 
         if paths:
-            result = build(paths, output)
+            excluded_names = {}
+            for game in paths:
+                raw = config["games"][game].get("exclude_names", [])
+                if not isinstance(raw, list) or not all(isinstance(v, str) for v in raw):
+                    raise ValueError(f"{game}: exclude_names must be a list of strings")
+                excluded_names[game] = set(raw)
+            result = build(paths, output, excluded_names=excluded_names)
             for game in paths:
                 print(f"{game}: {len(result['games'][game]['players'])} player(s)")
         else:
