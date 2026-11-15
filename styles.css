@@ -855,3 +855,62 @@ h3 {
   .brand { font-size: 17px; }
   .topnav a { font-size: 10px; padding: 5px 7px; }
 }
+
+
+/* ============================================================
+   PROJECT UPLINK — HUB
+   ============================================================ */
+.hub-intro {
+  position: relative;
+  padding: 80px 0 70px;
+  background: radial-gradient(circle at 80% 15%, #402133 0%, #191622 38%, #0b0d14 78%);
+  border-bottom: 1px solid #ffffff12;
+}
+.hub-intro h1 { margin: 14px 0 10px; }
+.hub-period { color: var(--accent); }
+.hub-lead { max-width: 650px; color: #bec1ce; line-height: 1.8; }
+.hub-library { padding: 50px 0 85px; }
+.hub-links { display: flex; flex-direction: column; gap: 14px; }
+.hub-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  min-height: 132px;
+  padding: 15px 25px 15px 15px;
+  border: 1px solid #303343;
+  background: #171a25;
+  border-radius: 9px;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.hub-card:hover,
+.hub-card:focus-visible {
+  border-color: var(--accent);
+  background: #202332;
+  transform: translateX(4px);
+  outline-offset: 3px;
+}
+.hub-card-image {
+  width: 160px;
+  height: 100px;
+  flex: 0 0 160px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #28202f;
+  border: 1px solid #ffffff16;
+}
+.hub-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hub-card-image-fallback {
+  background: linear-gradient(135deg, #512338, #231f35 60%, #131723);
+}
+.hub-card-content { flex: 1; min-width: 0; }
+.hub-card-content h3 { font-size: 27px; margin: 0 0 8px; }
+.hub-card-content p { margin: 0; color: #abb0bf; font-size: 13px; line-height: 1.7; }
+.hub-card-arrow { color: var(--accent); font-size: 26px; margin-left: auto; }
+@media (max-width: 600px) {
+  .hub-intro { padding: 55px 0 45px; }
+  .hub-card { gap: 13px; min-height: 100px; padding: 12px; }
+  .hub-card-image { width: 90px; height: 72px; flex-basis: 90px; }
+  .hub-card-content h3 { font-size: 20px; }
+  .hub-card-content p { font-size: 11px; }
+  .hub-card-arrow { font-size: 18px; }
+}
