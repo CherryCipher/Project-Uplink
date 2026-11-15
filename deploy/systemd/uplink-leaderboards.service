@@ -1,0 +1,18 @@
+[Unit]
+Description=UPLINK - refresh game leaderboards from server logs
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+# This first version uses root's existing dedicated SSH key on the webserver.
+# The parser only updates leaderboards.json and does not run continuously.
+User=root
+WorkingDirectory=/var/www/html
+ExecStart=/usr/bin/python3 /var/www/html/scripts/poll_leaderboards.py --config /var/www/html/config/leaderboard-sources.json
+TimeoutStartSec=180
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/www/html
+ProtectHome=read-only
