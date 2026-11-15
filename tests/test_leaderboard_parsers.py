@@ -27,6 +27,28 @@ class ParserTests(unittest.TestCase):
             [{"name": "Lex:NL", "score": 7}, {"name": "Guest", "score": 2}]
         )
 
+    def test_xonotic_real_uplink_labelled_score_log(self):
+        labels = "score!!" + "," * 34 + "kills,deaths<,,suicides<,dmg,dmgtaken<,rounds_pl,elo" + "," * 9
+        values = [0] * 51
+        values[0] = 30
+        values[34] = 31
+        values[35] = 13
+        values[37] = 1
+        values[38] = 4026.613770
+        values[39] = 2302.657471
+        values[41] = -2
+        log = (
+            ":scores:dm_silentsiege:533\n"
+            + ":labels:player:" + labels + "\n"
+            + ":player:see-labels:" + ",".join(str(v) for v in values)
+            + ":527:-1:LexusTG⚡\n"
+            + ":end\n"
+        )
+        self.assertEqual(
+            parse_xonotic(log),
+            [{"name": "LexusTG⚡", "score": 30}],
+        )
+
     def test_xonotic_ignores_eventlog_format(self):
         self.assertEqual(
             parse_xonotic(":scores:dm_map:120\n:player:see-labels:9,2:120:1:7:Lex\n:end"),
