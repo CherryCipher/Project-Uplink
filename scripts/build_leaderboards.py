@@ -163,14 +163,14 @@ def parse_assaultcube(log: str) -> list[dict]:
         # right so player nicknames may contain spaces.
         if frag_column == 0:
             match = re.match(
-                r"^\\d+\\s+(.+?)\\s+(-?\\d+)\\s+(-?\\d+)\\s+\\d+\\s+\\S+\\s+\\S+$",
+                r"^\d+\s+(.+?)\s+(-?\d+)\s+(-?\d+)\s+\d+\s+\S+\s+\S+$",
                 line,
             )
             if match:
                 rows.append((match.group(1), int(match.group(2))))
         else:
             match = re.match(
-                r"^\\d+\\s+(.+?)\\s+(-?\\d+)\\s+(-?\\d+)\\s+(-?\\d+)\\s+\\d+\\s+\\S+\\s+\\S+$",
+                r"^\d+\s+(.+?)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+\d+\s+\S+\s+\S+$",
                 line,
             )
             if match:
