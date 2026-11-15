@@ -182,6 +182,9 @@ def build(paths: dict[str, Path], output: Path) -> dict:
         json.dump(payload, temporary, ensure_ascii=False, indent=2)
         temporary.write("\n")
     try:
+        # Nginx must be able to read the freshly replaced file. NamedTemporaryFile
+        # defaults to 0600, which previously caused HTTP 403 after each update.
+        os.chmod(temp_path, 0o644)
         os.replace(temp_path, output)
     finally:
         temp_path.unlink(missing_ok=True)

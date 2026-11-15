@@ -1,0 +1,12 @@
+[Unit]
+Description=UPLINK - poll game scores every 5 minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=5min
+AccuracySec=20s
+Unit=uplink-leaderboards.service
+Persistent=false
+
+[Install]
+WantedBy=timers.target
