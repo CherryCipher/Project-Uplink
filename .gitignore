@@ -13,3 +13,7 @@ __pycache__/
 
 # Tijdelijke bestanden
 .vscode/
+
+# Dynamische scores (gegenereerd op de server)
+/leaderboards.json
+*.log
