@@ -14,7 +14,10 @@ import subprocess
 import sys
 import tempfile
 
-from build_leaderboards import PARSERS, build
+try:
+    from .build_leaderboards import PARSERS, build  # imported from tests
+except ImportError:
+    from build_leaderboards import PARSERS, build   # run as a script
 
 
 def source_is_valid(game: str, source: object) -> bool:
