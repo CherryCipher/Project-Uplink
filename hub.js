@@ -31,7 +31,11 @@ function card(item) {
   const imageUrl = safeUrl(item.image, true);
   if (imageUrl) {
     const img = document.createElement('img');
-    img.src = imageUrl;
+    // Forceer een verse afbeelding bij elke paginalaadbeurt.
+    // Zo blijft een eerder gecachete placeholder of oude afbeelding niet hangen.
+    const freshImageUrl = new URL(imageUrl);
+    freshImageUrl.searchParams.set('_hub_refresh', String(Date.now()));
+    img.src = freshImageUrl.href;
     img.alt = '';
     img.loading = 'lazy';
     img.addEventListener('error', () => {
