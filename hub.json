@@ -1,0 +1,10 @@
+{
+  "links": [
+    {
+      "title": "Copyparty",
+      "description": "Deel bestanden met andere Uplink-deelnemers. Upload en download rechtstreeks via je browser.",
+      "image": "assets/placeholder-wide.svg",
+      "url": "http://copyparty.uplink.lan:3923"
+    }
+  ]
+}
