@@ -60,7 +60,6 @@ class ParserTests(unittest.TestCase):
             "0:00 InitGame: \\mapname\\q3dm1\n"
             "4:00 Exit: Fraglimit hit.\n"
             "4:00 score: 20 ping: 13 client: 0 Lex\n"
-            "4:01 score: 20 ping: 13 client: 0 name: Lex\n"
             "4:01 score: -2 ping: 20 client: 1 name: Guest\n"
             "5:00 InitGame: \\mapname\\q3dm2\n"
             "8:00 Exit: Timelimit hit.\n"
@@ -70,6 +69,21 @@ class ParserTests(unittest.TestCase):
             parse_openarena(log),
             [{"name": "Lex", "score": 30}, {"name": "Guest", "score": -2}],
         )
+
+    def test_openarena_real_uplink_log_lines(self):
+        log = (
+            "11:48 Exit: Fraglimit hit.\n"
+            "11:48 score: 30  ping: 0  client: 1 Grunt\n"
+            "11:48 score: 26  ping: 0  client: 3 Penguin\n"
+            "11:48 score: 26  ping: 3  client: 4 LexusTG\n"
+            "11:48 score: 22  ping: 0  client: 2 Major\n"
+        )
+        self.assertEqual(parse_openarena(log), [
+            {"name": "Grunt", "score": 30},
+            {"name": "LexusTG", "score": 26},
+            {"name": "Penguin", "score": 26},
+            {"name": "Major", "score": 22},
+        ])
 
     def test_assaultcube_frag_events_only(self):
         log = (

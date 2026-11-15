@@ -17,7 +17,7 @@ import tempfile
 SUPPORTED = ("xonotic", "assaultcube", "openarena")
 COLOR_CODES = re.compile(r"\^[0-9]")
 Q3_SCORE = re.compile(
-    r"\bscore:\s*(-?\d+)\s+ping:\s*\d+\s+client:\s*\d+\s+name:\s*(.+?)\s*$",
+    r"\bscore:\s*(-?\d+)\s+ping:\s*\d+\s+client:\s*\d+\s+(?:name:\s*)?(.+?)\s*$",
     re.IGNORECASE,
 )
 # AssaultCube logs describe kills as "<attacker> fragged <victim>".
