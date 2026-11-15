@@ -9,11 +9,11 @@ Als het niet bestaat, blijft de bestaande handmatige `games.json`-scorelijst wer
 
 | Game | Bron | Kolom | Status |
 | --- | --- | --- | --- |
-| Xonotic | `sv_logscores_file` `:scores:...` / `:player:...` / `:end` | Frags | Parser + fixtures; echte serverlog nog controleren |
+| Xonotic | `sv_logscores_file` `:scores:` / `:labels:` / `:player:` / `:end` | Score | Getoetst aan de aangeleverde Uplink-logindeling |
 | OpenArena | Quake III `g_log` `Exit:` / `score:`-regels | Score | Parser + fixtures; echte serverlog nog controleren |
 | AssaultCube | `fragged`-meldingen uit server-/syslog | Frags (events) | Experimenteel: eerste echte log nodig voor definitieve betrouwbaarheid |
 
-**Let op:** dit zijn geaggregeerde scores per nickname. Een naamswijziging
+**Let op:** dit zijn geaggregeerde scores per nickname. Voor Xonotic gebruiken we de echte scorekolom en niet het aantal kills. Een naamswijziging
 maakt een nieuwe speler. Xonotic frags, OpenArena matchscores en AssaultCube
 fragmeldingen zijn **verschillende metrieken**. Maak er geen gezamenlijke
 ranglijst van zonder normalisatie. Onvoltooide Xonotic matches worden genegeerd.
@@ -39,8 +39,7 @@ Voorbeeld Xonotic scores.log (het formaat dat de parser ondersteunt):
 :end
 ```
 
-Let op: `sv_eventlog` gebruikt een ander (nieuw) :player:-formaat.
-Dat formaat ondersteunt deze scoreparser bewust **niet**; geef hem `scores.log`.
+De parser ondersteunt ook de gelabelde `:player:see-labels:`-regels uit de Uplink-`scores.log`. Hij leest de `score!!`-kolom als **Score** (in de testwedstrijd: 30); `kills` is een aparte kolom (31). Een ander, niet-gelabeld eventlog-formaat is niet automatisch hetzelfde.
 
 **OpenArena**, in je serverconfig:
 
