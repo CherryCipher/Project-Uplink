@@ -69,7 +69,7 @@ def parse_xonotic(log: str) -> list[dict]:
         elif inside and line.startswith(":player:see-labels:"):
             # :player:see-labels:<comma separated stats>:<time>:<team>:<name>
             parsed = re.match(
-                r"^:player:see-labels:([^:]*):(-?\\d+):(-?\\d+):(.+)$",
+                r"^:player:see-labels:([^:]*):(-?\d+):(-?\d+):(.+)$",
                 line
             )
             if parsed and score_column is not None:
@@ -83,7 +83,7 @@ def parse_xonotic(log: str) -> list[dict]:
         elif inside and line.startswith(":player:"):
             # Legacy layout: :player:<score>:<deaths>:<time>:<team>:<name>
             parsed = re.match(
-                r"^:player:(-?\\d+):(-?\\d+):(\\d+):(-?\\d+):(.+)$",
+                r"^:player:(-?\d+):(-?\d+):(\d+):(-?\d+):(.+)$",
                 line
             )
             if parsed:
