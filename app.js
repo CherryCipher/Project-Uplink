@@ -15,6 +15,23 @@ function card(game) {
   const art = document.createElement('div');
   art.className = 'box-art';
   art.append(makeImage(game.boxImage, `${game.title} box art`));
+
+  // Independent metadata flags from games.json; neither implies a live ping.
+  if (game.localServer === true) {
+    const serverBadge = document.createElement('span');
+    serverBadge.className = 'game-server-badge';
+    serverBadge.setAttribute('aria-label', 'Lokale gameserver beschikbaar');
+    serverBadge.title = 'Lokale gameserver beschikbaar';
+    // A small inline SVG icon avoids external assets and icon-font dependencies.
+    serverBadge.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="8" rx="2"/><rect x="4" y="13" width="16" height="8" rx="2"/><circle cx="8" cy="7" r="1"/><circle cx="8" cy="17" r="1"/><path d="M12 7h5M12 17h5"/></svg>';
+    art.append(serverBadge);
+  }
+  if (game.liveScoring === true) {
+    const liveBadge = document.createElement('span');
+    liveBadge.className = 'game-live-scoring';
+    liveBadge.textContent = 'LIVE SCORING';
+    art.append(liveBadge);
+  }
   const overlay = document.createElement('span');
   overlay.className = 'box-overlay';
   overlay.textContent = 'GO TO GAME ↗';
