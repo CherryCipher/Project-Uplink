@@ -1,5 +1,5 @@
 {
-  "_comment": "Games enabled=false worden overgeslagen. Activeer andere games zodra hun SSH-toegang en logpad getest zijn.",
+  "_comment": "Werkende Uplink-logsources: dit bestand gebruikt games en output (niet sources). OpenArena bots zijn uitgesloten op nickname.",
   "output": "/var/www/html/leaderboards.json",
   "games": {
     "xonotic": {
@@ -9,29 +9,54 @@
       "identity_file": "/root/.ssh/id_ed25519_uplink",
       "remote_log": "/home/xonotic/.xonotic/data/data/scores.log"
     },
-    "assaultcube": {
-      "enabled": false,
-      "host": "192.168.222.101",
-      "user": "uplinklogs",
-      "identity_file": "/root/.ssh/id_ed25519_uplink_assaultcube",
-      "remote_log": "/pad/naar/assaultcube/server.log"
-    },
     "openarena": {
-      "enabled": false,
+      "enabled": true,
       "host": "192.168.222.103",
       "user": "uplinklogs",
       "identity_file": "/root/.ssh/id_ed25519_uplink_openarena",
-      "remote_log": "/pad/naar/openarena/games.log",
+      "remote_log": "/var/games/openarena-server/server.oa/baseoa/games.log",
       "exclude_names": [
-        "Sarge",
-        "Dark",
         "Angelyss",
+        "Andriy",
+        "Arachna",
+        "Assassin",
+        "Ayumi",
+        "Beret",
+        "Broadklin",
+        "Cyber-Garg",
+        "Dark",
+        "Gargoyle",
+        "Ghost",
         "Grism",
         "Grunt",
-        "Penguin",
+        "Headcrash",
+        "Jenna",
+        "Kyonshi",
+        "Liz",
         "Major",
-        "Beret"
+        "Merman",
+        "MetalBot",
+        "Morgan",
+        "Murielle",
+        "Neko",
+        "Nekoyss",
+        "Penguin",
+        "Rai",
+        "S_Marine",
+        "Sarge",
+        "Sergei",
+        "Skelebot",
+        "Sorceress",
+        "Tanisha",
+        "Tony"
       ]
+    },
+    "assaultcube": {
+      "enabled": true,
+      "host": "192.168.222.101",
+      "user": "uplinklogs",
+      "identity_file": "/root/.ssh/id_ed25519_uplink_assaultcube",
+      "remote_log": "/var/lib/assaultcube/uplink/scores.log"
     }
   }
 }
