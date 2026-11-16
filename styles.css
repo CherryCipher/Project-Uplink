@@ -378,6 +378,50 @@ h3 {
   transform: scale(1.05);
 }
 
+/* Uplink server availability is declared in games.json; this is not a ping status. */
+.game-server-badge {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  color: #e8fff7;
+  background: #101d1deb;
+  border: 1px solid #65e5b8a6;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px #0009;
+  pointer-events: none;
+}
+
+.game-server-badge svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.game-live-scoring {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 10px 8px;
+  background: #e43b59ef;
+  color: #fff;
+  text-align: center;
+  font: 900 13px/1.2 "Barlow Condensed", Impact, sans-serif;
+  letter-spacing: .15em;
+  text-shadow: 0 1px 2px #0008;
+  box-shadow: 0 -4px 18px #0005;
+  pointer-events: none;
+}
+
 .box-overlay {
   position: absolute;
   inset: auto 0 0;

@@ -52,3 +52,18 @@ De HUB werkt zonder database en zonder extra backend. Start lokaal `py -m http.s
 Voor Xonotic, AssaultCube en OpenArena is een optionele logparser toegevoegd.
 Zie [docs/LEADERBOARDS.md](docs/LEADERBOARDS.md) voor configuratie, testen en beperkingen.
 De website blijft statisch; `leaderboards.json` wordt lokaal op de webserver aangemaakt en niet naar Git gepusht.
+
+## Gamekaart-badges instellen
+
+In `games.json` kun je per game optioneel twee onafhankelijke booleans toevoegen:
+
+```json
+"localServer": true,
+"liveScoring": true
+```
+
+- `localServer: true`: toont een klein servericoon rechtsboven op de gamebox. Dit geeft aan dat Uplink voor de game een lokale server aanbiedt, **niet** dat de server op dit moment technisch bereikbaar is.
+- `liveScoring: true`: toont de opvallende **LIVE SCORING**-balk onderaan de gamebox. Schakel dit alleen in bij games die al een automatisch bijgewerkt leaderboard hebben.
+- Als de velden ontbreken of `false` zijn, verschijnt er geen badge.
+
+Deze informatie is handmatig en komt onafhankelijk van de feitelijke `leaderboards.json`; de bestaande leaderboard-updater blijft ongewijzigd.
