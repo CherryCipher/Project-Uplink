@@ -1,0 +1,65 @@
+{
+  "title": "UPLINK 2027",
+  "subtitle": "The LAN schedule · Games, food & everything in between",
+  "days": [
+    {
+      "date": "2027-01-29",
+      "label": "Friday 29th",
+      "events": [
+        {
+          "start": "10:00",
+          "end": "11:00",
+          "game": "openarena",
+          "title": "OpenArena Tournament",
+          "description": "Kick-off tournament. Join the arena!"
+        },
+        {
+          "start": "11:15",
+          "end": "12:00",
+          "title": "Free Play",
+          "description": "Choose your game and explore the LAN.",
+          "type": "activity"
+        },
+        {
+          "start": "12:00",
+          "end": "13:00",
+          "title": "Lunch Break",
+          "description": "Food, drinks and a well-earned pause.",
+          "type": "break"
+        }
+      ]
+    },
+    {
+      "date": "2027-01-30",
+      "label": "Saturday 30th",
+      "events": [
+        {
+          "start": "09:00",
+          "end": "10:00",
+          "title": "Board Games",
+          "description": "An offline start to the day.",
+          "type": "activity"
+        },
+        {
+          "start": "10:00",
+          "end": "11:00",
+          "game": "xonotic",
+          "title": "Xonotic Tournament",
+          "description": "Fast-paced arena competition."
+        },
+        {
+          "start": "11:15",
+          "end": "12:00",
+          "game": "assaultcube",
+          "description": "Team battles on the local server."
+        },
+        {
+          "start": "12:00",
+          "end": "13:00",
+          "title": "Lunch",
+          "type": "break"
+        }
+      ]
+    }
+  ]
+}
