@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d14">
+  <title>Project UPLINK — Program</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="program.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Uplink home">
+      <span class="brand-icon"></span>
+      PROJECT<span>UPLINK</span>
+      <small>THE MAGPIE - Resource Hub</small>
+    </a>
+    <nav class="topnav" aria-label="Bibliotheek navigatie">
+      <a href="index.html">Games</a>
+      <a href="software.html">Software</a>
+      <a href="hub.html">Services</a>
+      <a href="program.html" class="active" aria-current="page">Program</a>
+    </nav>
+    <span class="server-pill"><span class="status-dot"></span>uplink.lan | live</span>
+  </header>
+
+  <main>
+    <section class="program-intro">
+      <div class="wrap">
+        <span class="eyebrow">PROJECT UPLINK / EVENT SCHEDULE</span>
+        <h1 id="programTitle">THE PROGRAM</h1>
+        <p class="hub-lead" id="programSubtitle">Everything that's happening during Uplink.</p>
+      </div>
+    </section>
+    <section class="wrap program-content" aria-label="Programma per dag">
+      <div id="programDays" class="program-days" aria-live="polite"></div>
+      <p id="programMessage" class="empty" role="status">Program loading...</p>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <span>PROJECT UPLINK SERVERS - USE AT OWN RISK</span>
+  </footer>
+</body>
+</html>
