@@ -67,3 +67,58 @@ In `games.json` kun je per game optioneel twee onafhankelijke booleans toevoegen
 - Als de velden ontbreken of `false` zijn, verschijnt er geen badge.
 
 Deze informatie is handmatig en komt onafhankelijk van de feitelijke `leaderboards.json`; de bestaande leaderboard-updater blijft ongewijzigd.
+
+
+## Program — planning per dag
+
+De pagina `program.html` gebruikt `program.json` voor een tijdlijn met dagen en
+activiteiten. Maak een dag aan met `date`, `label` en `events`. Voorbeeld:
+
+```json
+{
+  "date": "2027-01-29",
+  "label": "Friday 29th",
+  "events": [
+    {
+      "start": "10:00",
+      "end": "11:00",
+      "game": "openarena",
+      "title": "OpenArena Tournament",
+      "description": "Join the arena!"
+    },
+    {
+      "start": "12:00",
+      "end": "13:00",
+      "title": "Lunch",
+      "type": "break"
+    },
+    {
+      "start": "14:00",
+      "end": "15:00",
+      "title": "Board Games",
+      "type": "activity",
+      "url": "hub.html",
+      "linkLabel": "Explore services"
+    }
+  ]
+}
+```
+
+- `game` is de **id** uit `games.json`, bijvoorbeeld `openarena`,
+  `xonotic` of `assaultcube`. De pagina haalt zelf de naam, box-art
+  en link naar `game.html?id=...` op; voer geen afbeeldingspaden in het
+  programma in. `title` is optioneel; je kunt daarmee een speciale naam
+  zoals "OpenArena Tournament" tonen.
+- Zonder `game` is de activiteit vrij invulbaar, bijvoorbeeld lunch,
+  pauzes, bordspellen of workshops. `type: "break"` geeft het label
+  `BREAK / FOOD`, anders staat er `ACTIVITY`.
+- `url` en optioneel `linkLabel` geven een gewone activiteit een eigen
+  link. Voor gameactiviteiten is de link al automatisch.
+- Zet tijdstippen in `HH:MM` 24-uursnotatie; per dag sorteert de site
+  automatisch op starttijd. De `label` bepaalt de zichtbare dagtitel.
+- `title` en `subtitle` bovenaan `program.json` bepalen de paginakop.
+- De voorbeeldagenda voor vrijdag 29 en zaterdag 30 januari 2027 is
+  **voorbeeldinhoud** die je zelf moet vervangen door het echte programma.
+
+Alle bestanden zijn statisch en werken op je bestaande Nginx-webserver.
+Na een wijziging aan `program.json` is geen herstart van services nodig.
