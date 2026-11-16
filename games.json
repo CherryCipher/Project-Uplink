@@ -30,7 +30,9 @@
       ],
       "downloadUrl": "downloads/OpenArena.zip",
       "leaderboard": [],
-      "serverAddress": "192.168.222.103:27960"
+      "serverAddress": "192.168.222.103:27960",
+      "localServer": true,
+      "liveScoring": true
     },
     {
       "id": "assaultcube",
@@ -61,7 +63,9 @@
       ],
       "downloadUrl": "downloads/AssaultCube_v1.3.0.2_LockdownEdition.exe",
       "leaderboard": [],
-      "serverAddress": "192.168.222.101 28763"
+      "serverAddress": "192.168.222.101 28763",
+      "localServer": true,
+      "liveScoring": true
     },
     {
       "id": "etlegacy",
@@ -92,7 +96,8 @@
       ],
       "downloadUrl": "downloads/etlegacy-v2.86.2-x86.exe",
       "leaderboard": [],
-      "serverAddress": "192.168.222.102:27960"
+      "serverAddress": "192.168.222.102:27960",
+      "localServer": true
     },
     {
       "id": "hedgewars",
@@ -242,7 +247,8 @@
       ],
       "downloadUrl": "downloads/SuperTuxKart-1.5-installer-x86_64.exe",
       "leaderboard": [],
-      "serverAddress": "192.168.222.104:2759"
+      "serverAddress": "192.168.222.104:2759",
+      "localServer": true
     },
     {
       "id": "unrealgold",
@@ -339,7 +345,9 @@
           "score": 16
         }
       ],
-      "serverAddress": "192.168.222.100:26000"
+      "serverAddress": "192.168.222.100:26000",
+      "localServer": true,
+      "liveScoring": true
     },
     {
       "id": "linux",
