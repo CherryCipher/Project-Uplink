@@ -1,6 +1,12 @@
 {
   "links": [
     {
+      "title": "RomM",
+      "description": "Play Classic Arcade Games in your browser. No installation required. (Nes, GB, GBA, SNES etc.)",
+      "image": "assets/services/romm.webp",
+      "url": "http://arcade.uplink.lan:8080"
+    },
+    {
       "title": "Copyparty",
       "description": "Deel bestanden met andere Uplink-deelnemers. Upload en download rechtstreeks via je browser.",
       "image": "assets/services/copyparty.webp",
