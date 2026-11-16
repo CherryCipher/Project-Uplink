@@ -1010,7 +1010,34 @@ h3 {
   align-items: center;
   gap: 22px;
 }
-.program-event-game:hover { border-color: #f0446288; }
+/* Game sessions stand out; breaks and non-game activities retain the dark base card. */
+.program-event-game {
+  background: linear-gradient(105deg, #52243b 0%, #422138 55%, #302032 100%);
+  border-color: #a74770;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.program-event-game .program-time {
+  background: #391a30;
+  border-right-color: #87405e;
+}
+.program-event-game .program-kind {
+  color: #ffadc1;
+}
+.program-event-game .program-event-copy p,
+.program-event-game .program-game-name {
+  color: #e4c7d3;
+}
+.program-event-game:hover,
+.program-event-game:focus-within {
+  border-color: #ff789b;
+  background: linear-gradient(105deg, #612941 0%, #4e2440 55%, #38243a 100%);
+}
+@media (max-width: 760px) {
+  .program-event-game .program-time {
+    border-right: 0;
+    border-bottom-color: #87405e;
+  }
+}
 .program-event-link:hover h3 { color: #ff6d89; }
 .program-cover {
   width: 70px;
